@@ -4,7 +4,8 @@
   "description": "react para fines educativos",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-cli serve",
+    "start": "npm run build && npm run serve",
+    "serve": "webpack-cli serve",
     "build": "webpack-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
