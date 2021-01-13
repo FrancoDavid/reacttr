@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-
 module.exports = {
     entry: {
         main:   path.resolve(__dirname, './src/index.jsx')
@@ -17,14 +16,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/, 
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
                 test:   /(.\.js|jsx)$/,
                 exclude:    /node_modules/,
                 use: ['babel-loader']
             },
-            {
-                test: /\.css$/, 
-                use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader']
-            }
         ]
     },
     mode: 'development',
@@ -41,6 +40,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/assets/index.html')
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin()
     ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    }
 }
