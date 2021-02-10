@@ -1,0 +1,29 @@
+.profile {
+    display:    flex;
+    justify-content: flex-start;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 16px;
+    color: black;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.btnTweet {
+    color: white;
+    background-color: blue;
+    padding: 1em;
+    margin: 0.6em;
+    font-weight: 800;
+    border-radius: 2px;
+}
