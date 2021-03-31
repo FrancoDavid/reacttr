@@ -1,0 +1,26 @@
+.containerInput {
+    padding: 1rem;
+}
+
+.text {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons {
+    padding: 1em;
+    font-weight: 600;
+    color: white;
+}
+
+.close {
+    background-color: red;
+}
+
+.send {
+    background-color: green;
+}

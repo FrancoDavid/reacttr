@@ -49,7 +49,7 @@ class Main extends Component {
             <div>
                 <ProfileBar email={this.props.user.email}
                             picture={this.props.user.photoUrl}  
-                            openText={this.handlerOpenInput}/>
+                            openText={this.handlerOpenInput.bind(this)}/>
                 {this.showInputTweet()}
                 <MessageList messages={this.state.messages} />
             </div>            
