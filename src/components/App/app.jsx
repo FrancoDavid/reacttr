@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../Header/header.component';
 import Main from '../Main/main.component';
+import { Switch } from 'react-router-dom';
+
+
 
 class App extends Component {
 
@@ -18,9 +21,15 @@ class App extends Component {
 
     render() {
         return(
+            
             <div>
-               <Header />
-               <Main user={this.state.user}/>
+                <Header />
+                <Switch>
+                    <Route path='/' component={} />
+                    <Route path='/' component={} />
+                    <Route path='/' component={} />
+                </Switch>
+                {/* <Main user={this.state.user}/> */}
             </div>
         ) 
     }
