@@ -10,6 +10,7 @@ class App extends Component {
             user: {
                 photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_sf-YpPF_UUVW8Mf6c4EZQTozu8jxLVTIPA&usqp=CAU',
                 email: 'franco@live.com',
+                displayName: 'franco',
                 onOpenText: false
             }
         }

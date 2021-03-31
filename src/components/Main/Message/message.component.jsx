@@ -10,10 +10,28 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 class Message extends Component {
     constructor(props)   {
         super(props)
+        this.state = {
+            pressFavorite: false,
+            pressRetweet: false
+        }
+
+        this.onPressFavorite = this.onPressFavorite.bind(this);
+        this.onPressRetweet = this.onPressRetweet.bind(this);
+          
     }
 
     changesFormatDate(date) {
         return moment(date).fromNow()
+    }
+
+    onPressRetweet() {
+        this.props.onRetweet();
+        this.setState({ pressRetweet: true });
+    }
+
+    onPressFavorite() {
+        this.props.onFavorite();
+        this.setState({ pressFavorite: true });
     }
 
     render() {
@@ -32,13 +50,21 @@ class Message extends Component {
                         <h2>{this.props.text}</h2>
                     </div>
                     <div className={styles.buttons}>
-                        <FontAwesomeIcon icon={faShare} className={styles.icon}/>
-                        <FontAwesomeIcon icon={faRetweet} className={styles.icon}/>
-                        <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+                        <span>
+                            <FontAwesomeIcon icon={faShare} 
+                            className={styles.icon}/>
+                        </span>
+                        <span onClick={this.onPressRetweet}>
+                            <FontAwesomeIcon icon={faRetweet} className={styles.icon}/>
+                            <span className={(this.state.pressRetweet) ? styles.colorBlue : ''}>{this.props.numRetweet}</span>
+                        </span>
+                        <span onClick={this.onPressFavorite}>
+                            <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+                            <span className={(this.state.pressFavorite) ? styles.colorYellow : ''}>{this.props.numFavorite}</span>
+                        </span>                        
                     </div>
                 </div>
             </div>
-            
         );
     }
 }

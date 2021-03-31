@@ -7,21 +7,24 @@ class MessageList extends Component {
         super(props)
     }
 
+    listMessages() {
+        return this.props.messages.map((msg, index) => {
+            return (<Message text={msg.text}
+                            picture={msg.picture}
+                            displayName={msg.displayName}
+                            username={msg.username}
+                            date={msg.date}
+                            key={index}
+                            numRetweet={msg.retweet}
+                            numFavorite={msg.favorite}
+                            onRetweet={() => this.props.onRetweet(index)}
+                            onFavorite={() => this.props.onFavorite(index)}/>)
+        }).reverse();
+    }
 
     render() {
         return (
-            <div>
-                {   
-                    this.props.messages.map((msg, index) => {
-                        return (<Message text={msg.text}
-                                        picture={msg.picture}
-                                        displayName={msg.displayName}
-                                        username={msg.username}
-                                        date={msg.date}
-                                        key={index}/>)
-                    })
-                }
-            </div>
+            <div>{this.listMessages()}</div>
         );
     }
 }
